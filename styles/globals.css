@@ -1,0 +1,53 @@
+#__next{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background: green;
+}
+
+nav{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: yellow;
+  z-index: 999;
+}
+
+main{
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: red;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+section{
+  position: relative;
+  width: 90%;
+  background: blue;
+  margin: 5rem;
+}
+
+footer{
+  position: relative;
+  width: 100%;
+  background: white;
+}
+
+
