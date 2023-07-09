@@ -40,9 +40,15 @@ interface Image{
   }
   
   export default function AlbumContainer({album}:Props){
+
     return(
-        <details>
-            <summary>
+        <details className={s.album}>
+            <summary 
+                className={s.summary}
+                style={{
+                    backgroundImage: `url("https://zenphoto.mrweber.ch${album.images[0].url_full}")`
+                }}
+            >
                 {album.title}
             </summary>
             <div className={s.container}>
@@ -60,7 +66,6 @@ interface Image{
                             width={image.width}
                             height={image.height}
                             loading="lazy"
-                            objectFit="cover"
                             ></Image>
                     </div>
                 )
