@@ -59,6 +59,7 @@ interface Image{
                         style={{
                             backgroundImage: `url("https://zenphoto.mrweber.ch/${image.url_thumb}")`
                         }}
+                        key={image.url_full}
                     >
                         <Image
                             src={`https://zenphoto.mrweber.ch/${image.url_full}`}
