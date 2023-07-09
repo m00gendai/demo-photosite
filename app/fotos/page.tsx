@@ -48,7 +48,7 @@ interface Data{
 }
 
 async function getAlbums(){
-  const getAlbums: Response = await fetch("https://zenphoto.mrweber.ch/?json&pagination=off&depth=2")
+  const getAlbums: Response = await fetch("https://zenphoto.mrweber.ch/?json&pagination=off&depth=3")
   return getAlbums.json()
 }
 
@@ -56,13 +56,15 @@ async function getAlbums(){
 export default async function Home() {
 
   const data:Data = await getAlbums()
-
+  const title: string = " FOTOS "
   return (
-    <section>
-        <h1>FOTOS</h1>
+    <section className="page">
+        <h1 className="pageTitle">
+          {<>{title.repeat(25)} <span className="titleFocus">{title}</span> {title.repeat(25)}</>}
+        </h1>
         <article>
         {data.album.albums.map(album=>{
-            return <AlbumContainer album={album} />
+            return <AlbumContainer key={album.title} album={album} />
           })}
         </article>
     </section>
