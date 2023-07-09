@@ -1,0 +1,50 @@
+.album{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.summary{
+    position: relative;
+    height: 20vh;
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-indent: 1rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    font-family:monospace;
+    letter-spacing: 5px;
+    text-shadow: 3px 3px 0px black;
+    text-transform:uppercase;
+    font-size: 5rem;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    background-color: #f8f9d2;
+    background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
+}
+
+.thumb{
+    position: relative;
+    aspect-ratio: 1/1;
+    background-position: center,center;
+    background-repeat: no-repeat,no-repeat;
+    background-size: cover,cover;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+}
+
+.thumb:last-child{
+    box-shadow: 5px 0px 5px 0px black;
+}
