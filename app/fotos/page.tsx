@@ -48,7 +48,11 @@ interface Data{
 }
 
 async function getAlbums(){
-  const getAlbums: Response = await fetch("https://zenphoto.mrweber.ch/?json&pagination=off&depth=3")
+  const getAlbums: Response = await fetch("https://zenphoto.mrweber.ch/?json&pagination=off&depth=2", {
+    next: {
+      revalidate: 10
+    }
+  })
   return getAlbums.json()
 }
 
