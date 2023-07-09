@@ -40,7 +40,32 @@ main{
 section{
   position: relative;
   width: 90vw;
-  margin: 5rem 0 0 0;
+  margin: 5rem 0;
+}
+
+.page{
+  position: relative;
+  width: 100vw;
+  margin: 5rem 0;
+}
+
+.pageTitle{
+  position: relative;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+  color: lightgrey;
+}
+
+.titleFocus{
+  position: relative;
+  display: inline-block;
+  color: rgba(0,0,0,0.7);
+  white-space: pre;
 }
 
 footer{
