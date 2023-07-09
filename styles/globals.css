@@ -70,7 +70,24 @@ section{
 
 .studioGrid{
   display: grid;
-  
+  grid-template-columns: 1fr 1fr;
+}
+
+@media only screen and (max-aspect-ratio: 13/9){
+  .studioGrid{
+    grid-template-columns: 1fr;
+  }
+}
+
+.imageContainer{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  object-fit: cover;
 }
 
 footer{

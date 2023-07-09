@@ -74,17 +74,46 @@ export default async function Home() {
         </h1>
         <article>
           <div className="studioGrid">
+            <div className="imageContainer">
         <Image
           src={`https://zenphoto.mrweber.ch/${images[0].url_full}`}
           alt={images[0].title}
-          width={images[0].width}
-          height={images[0].height}
+          fill={true}
           />
-          <div style={{
-            border: "1px solid black"
-          }}>
-            {`DSLR CAMERA`}
           </div>
+          <div style={{
+            whiteSpace: "pre"
+          }}>
+            {`
+            FOTO STUDIO PETERHANS
+            NEUE LINDENSTRASSENWEGGASSE 42
+            0815 ANKE-BROTIKON
+
+            001 079 42 69
+            INFO@FOTOSTUDIOPETERHANS.CH
+
+            TERMINE NACH VEREINBARUNG
+            `}
+          </div>
+          <div style={{
+            whiteSpace: "pre"
+          }}>
+            {`
+            KODAMATIC 100
+            PENTAX K-1 MARK II
+            NIKON F2
+            CANON EOS-1D X MARK III
+            HASSELBLAD 500EL
+            NOKIA 7650
+            `}
+          </div>
+          <div className="imageContainer">
+          <Image
+          src={`https://zenphoto.mrweber.ch/${images[1].url_full}`}
+          alt={images[1].title}
+          fill={true}
+          /></div>
+          
           </div>
         </article>
     </section>
