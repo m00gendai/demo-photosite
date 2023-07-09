@@ -1,0 +1,20 @@
+.container{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 1rem;
+}
+
+.thumb{
+    position: relative;
+    aspect-ratio: 1/1;
+    background-position: center,center;
+    background-repeat: no-repeat,no-repeat;
+    border: 1px solid black;
+    background-size: cover,cover;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
