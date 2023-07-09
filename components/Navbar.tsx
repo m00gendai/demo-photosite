@@ -6,7 +6,7 @@ export default function Navbar(){
         <nav>
           <Link href="/">HOME</Link>
           <Link href="/fotos">FOTOS</Link>
-          <Link href="/">Link</Link>
+          <Link href="/studio">STUDIO</Link>
         </nav>
     )
 }
