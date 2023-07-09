@@ -7,6 +7,7 @@ export default function Navbar(){
           <Link href="/">HOME</Link>
           <Link href="/fotos">FOTOS</Link>
           <Link href="/studio">STUDIO</Link>
+          <Link href="/fotograf">FOTOGRAF</Link>
         </nav>
     )
 }
