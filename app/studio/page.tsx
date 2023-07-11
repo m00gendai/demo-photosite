@@ -1,5 +1,6 @@
-import AlbumContainer from "@/components/AlbumContainer";
+import s from "@/styles/studio.module.css"
 import Image from "next/image";
+
 
 interface Image{
   path: string;
@@ -81,10 +82,8 @@ export default async function Home() {
           fill={true}
           />
           </div>
-          <div style={{
-            whiteSpace: "pre"
-          }}>
-            {`
+          <div className={s.textfield} style={{backgroundImage: `url("https://zenphoto.mrweber.ch/${images[0].url_full}")`}}>
+           <div className={s.text}>{`
             FOTO STUDIO PETERHANS
             NEUE LINDENSTRASSENWEGGASSE 42
             0815 ANKE-BROTIKON
@@ -93,19 +92,17 @@ export default async function Home() {
             INFO@FOTOSTUDIOPETERHANS.CH
 
             TERMINE NACH VEREINBARUNG
-            `}
+            `}</div>
           </div>
-          <div style={{
-            whiteSpace: "pre"
-          }}>
-            {`
+          <div className={s.textfield} style={{backgroundImage: `url("https://zenphoto.mrweber.ch/${images[1].url_full}")`}}>
+           <div className={s.text}>{`
             KODAMATIC 100
             PENTAX K-1 MARK II
             NIKON F2
             CANON EOS-1D X MARK III
             HASSELBLAD 500EL
             NOKIA 7650
-            `}
+            `}</div>
           </div>
           <div className="imageContainer">
           <Image
