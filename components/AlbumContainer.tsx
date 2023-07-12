@@ -46,28 +46,37 @@ interface Image{
             <summary 
                 className={s.summary}
                 style={{
-                    backgroundImage: `url("https://zenphoto.mrweber.ch${album.images[0].url_full}")`
+                    backgroundImage: `url("https://zenphoto.mrweber.ch${album.images[0].url_thumb}")`
                 }}
             >
-                {album.title}
+                <div style={{
+                    position: "relative",
+                    width: "100%",
+                    height: "100%",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backdropFilter: "blur(5px)",
+                    backgroundImage: `url("https://zenphoto.mrweber.ch${album.images[0].url_full}")`,
+                }}>
+                    {album.title}
+                </div>
             </summary>
             <div className={s.container}>
             {album.images.map(image=>{
-                return (
-                    <div 
+                return (<div
                         className={s.thumb}
                         style={{
-                            backgroundImage: `url("https://zenphoto.mrweber.ch/${image.url_thumb}")`
+                            backgroundImage: `url("https://zenphoto.mrweber.ch${image.url_thumb}")`
                         }}
                         key={image.url_full}
-                    >
+                    ><div style={{backdropFilter: "blur(5px)"}}>
                         <Image
                             src={`https://zenphoto.mrweber.ch/${image.url_full}`}
                             alt={image.title}
                             width={image.width}
                             height={image.height}
                             loading="lazy"
-                            ></Image>
+                            ></Image></div>
                     </div>
                 )
             })}
