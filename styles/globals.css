@@ -89,6 +89,8 @@ section{
   align-items: center;
   overflow: hidden;
   object-fit: cover;
+  background-size: cover;
+  background-position: center;
 }
 
 footer{

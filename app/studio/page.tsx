@@ -75,14 +75,16 @@ export default async function Home() {
         </h1>
         <article>
           <div className="studioGrid">
-            <div className="imageContainer">
+            <div className="imageContainer" style={{
+                backgroundImage: `url("https://zenphoto.mrweber.ch/${images[0].url_thumb}")`,
+              }}><div className={s.backdrop}>
         <Image
           src={`https://zenphoto.mrweber.ch/${images[0].url_full}`}
           alt={images[0].title}
           fill={true}
-          />
+          /></div>
           </div>
-          <div className={s.textfield} style={{backgroundImage: `url("https://zenphoto.mrweber.ch/${images[0].url_full}")`}}>
+          <div className={s.textfield} style={{backgroundImage: `url("https://zenphoto.mrweber.ch/${images[0].url_thumb}")`}}>
            <div className={s.text}>{`
             FOTO STUDIO PETERHANS
             NEUE LINDENSTRASSENWEGGASSE 42
@@ -105,11 +107,12 @@ export default async function Home() {
             `}</div>
           </div>
           <div className="imageContainer">
+            <div className={s.backdrop}>
           <Image
           src={`https://zenphoto.mrweber.ch/${images[1].url_full}`}
           alt={images[1].title}
           fill={true}
-          /></div>
+          /></div></div>
           
           </div>
         </article>
