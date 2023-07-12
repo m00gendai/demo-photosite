@@ -87,7 +87,7 @@ export default async function Home() {
           <div className={s.textfield} style={{backgroundImage: `url("https://zenphoto.mrweber.ch/${images[0].url_thumb}")`}}>
            <div className={s.text}>{`
             FOTO STUDIO PETERHANS
-            NEUE LINDENSTRASSENWEGGASSE 42
+            STURMGASS 42
             0815 ANKE-BROTIKON
 
             001 079 42 69
