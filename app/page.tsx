@@ -59,21 +59,7 @@ async function getAlbums(){
 export default async function Home() {
 
   const data:Data = await getAlbums()
-
-  const min:number = 0
-  const max:number = Math.floor(data.album.albums.length-1);
-  function getRando(){
-    const rando:number = Math.floor(Math.random() * (max - min + 1) + min);
-    if(data.album.albums[rando].title === "Galerie"){
-      return getRando()
-    } else {
-      return rando
-    }
-  }
-
-
-  const images1:Image[] = data.album.albums[getRando()].images
-  const images2:Image[] = data.album.albums[getRando()].images
+  const album:Albums[] = data.album.albums
 
   const title: string = " FOTO STUDIO PETERHANS "
 
@@ -82,8 +68,8 @@ export default async function Home() {
         <h1 className="pageTitle">
           {<>{title.repeat(25)} <span className="titleFocus">{title}</span> {title.repeat(25)}</>}
         </h1>
-        <Slideshow rtl={true} images={images1}/>
-        <Slideshow rtl={false} images={images2}/>
+        <Slideshow rtl={true} album={album}/>
+        <Slideshow rtl={false} album={album}/>
     </section>
   )
 }
