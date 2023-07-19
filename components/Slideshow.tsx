@@ -43,20 +43,23 @@ export default function Slideshow({rtl, images}:SliderProps){
             return <SwiperSlide key={`swiperItem_${image.path}`}>
                 <div style={{
                     position: "relative",
-                    width: "25vw",
-                    aspectRatio: "1/1",
+                    height: "30vh",
                     overflow: "hidden",
                     objectFit: "contain",
                     backgroundImage: `url("https://zenphoto.mrweber.ch${image.url_thumb}")`,
                     backgroundSize: "512px",
                     backgroundRepeat: "no-repeat",
                     backgroundPosition: "center",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
 
                 }}>
                 <Image
                     src={`https://zenphoto.mrweber.ch/${image.url_full}`}
                     alt={image.title}
-                    fill={true}
+                    width={image.width}
+                    height={image.height}
                 >
                 </Image>
                 </div>

@@ -39,11 +39,9 @@
     font-weight: bolder;
     text-decoration: none;
     color: black;
-    text-shadow: 40px 15px 0px rgba(0,0,0,0.3), -40px -15px 0px rgba(0,0,0,0.3);
     margin: 0 1rem;
 }
 
 .link:hover{
     color: rgba(0,0,0,0.3);
-    text-shadow: 40px 15px 0px rgba(0,0,0,1), -40px -15px 0px rgba(0,0,0,1);
 }
