@@ -96,14 +96,20 @@ export default async function Home() {
             TERMINE NACH VEREINBARUNG
             `}</div>
           </div>
+          
           <div className={s.textfield} style={{backgroundImage: `url("https://zenphoto.mrweber.ch/${images[1].url_full}")`}}>
            <div className={s.text}>{`
-            KODAMATIC 100
-            PENTAX K-1 MARK II
-            NIKON F2
-            CANON EOS-1D X MARK III
-            HASSELBLAD 500EL
-            NOKIA 7650
+            PASSFOTOS --- CHF 20 PRO 6 STÜCK
+            PERSONENSHOOTING STUDIO --- CHF 120 / STUNDE 
+            PERSONENSHOOTING LOCATION --- CHF 180 / STUNDE
+            HAUSTIERSHOOTING STUDIO --- CHF 80 / STUNDE
+            HAUSTIERSHOOTING LOCATION --- CHF 120 / STUNDE
+
+            ANDERES NACH ABSPACHE
+
+            BILDDATEIEN AUF USB --- KOSTENLOS
+            BILDDRUCK NACH ABSPRACHE
+
             `}</div>
           </div>
           <div className="imageContainer">
@@ -113,7 +119,24 @@ export default async function Home() {
           alt={images[1].title}
           fill={true}
           /></div></div>
-          
+
+          <div className="imageContainer">
+            <div className={s.backdrop}>
+          <Image
+          src={`https://zenphoto.mrweber.ch/${images[2].url_full}`}
+          alt={images[1].title}
+          fill={true}
+          /></div></div>
+          <div className={s.textfield} style={{backgroundImage: `url("https://zenphoto.mrweber.ch/${images[2].url_full}")`}}>
+           <div className={s.text}>{`
+            KODAMATIC 100
+            PENTAX K-1 MARK II
+            NIKON F2
+            CANON EOS-1D X MARK III
+            HASSELBLAD 500EL
+            NOKIA 7650
+            `}</div>
+          </div>
           </div>
         </article>
     </section>
