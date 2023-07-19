@@ -7,23 +7,66 @@ import 'swiper/css';
 import "swiper/css/autoplay"
 
 interface Image{
-    path: string;
-    title: string;
-    date: number;
-    url_full: string;
-    url_sized: string;
-    url_thumb: string;
-    width: number;
-    height: number;
-    index: Number;
-  }
+  path: string;
+  title: string;
+  date: number;
+  url_full: string;
+  url_sized: string;
+  url_thumb: string;
+  width: number;
+  height: number;
+  index: Number;
+}
+
+interface Next{
+  path: string;
+  title: string;
+  date: number;
+  date_updated: number;
+  image_size: number;
+  thumb_size: number;
+  url_thumb: string;
+}
+
+interface Albums{
+  path: string;
+  title: string;
+  date: number;
+  date_updated: number;
+  image_size: number;
+  thumb_size: number;
+  url_thumb: string;
+  images: Image[];
+  next: Next;
+}
+
+interface Album{
+  title: string;
+  desc: string;
+  path: string;
+  image_size: number;
+  thumb_size: number;
+  albums: Albums[];
+}
 
 interface SliderProps{
     rtl: boolean;
-    images:Image[]
+    album:Albums[]
   }
 
-export default function Slideshow({rtl, images}:SliderProps){
+export default function Slideshow({rtl, album}:SliderProps){
+  const min:number = 0
+  const max:number = Math.floor(album.length-1);
+  function getRando(){
+    const rando:number = Math.floor(Math.random() * (max - min + 1) + min);
+    if(album[rando].title === "Galerie"){
+      return getRando()
+    } else {
+      return rando
+    }
+  }
+
+const images:Image[] = album[getRando()].images
 
     return(
     <Swiper
