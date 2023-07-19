@@ -28,16 +28,16 @@ main{
   flex-wrap: wrap;
 }
 
-section{
-  position: relative;
-  width: 90vw;
-  margin: 5rem 0;
-}
-
 .page{
   position: relative;
   width: 100vw;
   margin: 5rem 0;
+}
+
+@media only screen and (max-aspect-ratio: 13/9){
+    .page{
+        margin: 1rem 0;
+    }
 }
 
 .pageTitle{
