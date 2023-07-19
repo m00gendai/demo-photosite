@@ -17,21 +17,11 @@ body{
   background: green;
 }
 
-nav{
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background: yellow;
-  z-index: 999;
-}
-
 main{
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-color: #d9e4f5;
-background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -60,6 +50,7 @@ section{
   white-space: nowrap;
   overflow: hidden;
   color: lightgrey;
+  margin: 3rem 0;
 }
 
 .titleFocus{
@@ -99,4 +90,7 @@ footer{
   background: white;
 }
 
-
+/* https://github.com/nolimits4web/swiper/discussions/5773 */
+.swiper-free-mode > .swiper-wrapper{
+  transition-timing-function : linear;
+}

@@ -83,7 +83,7 @@ export default async function Home() {
             <div className="imageContainer">
            <div style={{backdropFilter: "blur(10px)", position: "relative", width: "100%", height: "100%"}}>
         <Image
-          src={`https://zenphoto.mrweber.ch/${images[2].url_full}`}
+          src={`https://zenphoto.mrweber.ch/${images[3].url_full}`}
           alt={images[2].title}
           fill={true}
           /></div>
