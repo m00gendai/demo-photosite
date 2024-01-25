@@ -1,75 +1,38 @@
-import Slideshow from "@/components/Slideshow"
+import FrontGrid from "@/components/FrontGrid";
+import Title from "@/components/Title";
+import { Gallery } from "@/interfaces";
+import { metaData } from "@/utils";
 
-interface Image{
-  path: string;
-  title: string;
-  date: number;
-  url_full: string;
-  url_sized: string;
-  url_thumb: string;
-  width: number;
-  height: number;
-  index: Number;
-}
-
-interface Next{
-  path: string;
-  title: string;
-  date: number;
-  date_updated: number;
-  image_size: number;
-  thumb_size: number;
-  url_thumb: string;
-}
-
-interface Albums{
-  path: string;
-  title: string;
-  date: number;
-  date_updated: number;
-  image_size: number;
-  thumb_size: number;
-  url_thumb: string;
-  images: Image[];
-  next: Next;
-}
-
-interface Album{
-  title: string;
-  desc: string;
-  path: string;
-  image_size: number;
-  thumb_size: number;
-  albums: Albums[];
-}
-
-interface Data{
-  album: Album;
-}
-
-async function getAlbums(){
-  const getAlbums: Response = await fetch("https://zenphoto.mrweber.ch/galerie/?json&pagination=off&depth=2", {
+async function getGallery(){
+  const getGallery: Response = await fetch("https://zenphoto.mrweber.ch/galerie/?json&pagination=off&depth=2", {
     next: {
       revalidate: 10
     }
   })
-  return getAlbums.json()
+  return getGallery.json()
+}
+
+export async function generateMetadata(){
+  const title: string = "Fotostudio Peterhans - Das Fotostudio im Anketal"
+  const description: string = "Das Fotostudio im Anketal, spezialisiert auf Mensch und Portrait."
+  const image: string = "/studio.png"
+  const icon: string = ""
+
+  return metaData(title, description, image, icon)
 }
 
 export default async function Home() {
 
-  const data:Data = await getAlbums()
-  const album:Albums[] = data.album.albums
-
+  const gallery:Gallery = await getGallery()
   const title: string = " FOTO STUDIO PETERHANS "
+  const address: string = " STURMGASS 42 "
+  const place: string = " 0815 ANKE-BROTIKON "
 
   return (
     <section className="page">
-        <h1 className="pageTitle">
-          {<>{title.repeat(25)} <span className="titleFocus">{title}</span> {title.repeat(25)}</>}
-        </h1>
-        <Slideshow rtl={true} album={album}/>
-        <Slideshow rtl={false} album={album}/>
+        <FrontGrid gallery={gallery} mobile={false} />
+        <Title title={" FOTO STUDIO PETERHANS "} />
+        <FrontGrid gallery={gallery} mobile={true}/>
     </section>
   )
 }

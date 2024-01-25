@@ -1,4 +1,6 @@
 import AlbumContainer from "@/components/AlbumContainer";
+import Title from "@/components/Title";
+import { metaData } from "@/utils";
 
 interface Image{
   path: string;
@@ -56,23 +58,27 @@ async function getAlbums(){
   return getAlbums.json()
 }
 
+export async function generateMetadata(){
+  const title: string = "Fotostudio Peterhans - Mein Portfolio"
+  const description: string = "Eine Auswahl an Fotos"
+  const image: string = "/studio.png"
+  const icon: string = ""
+
+  return metaData(title, description, image, icon)
+}
+
 export default async function Home() {
 
   const data:Data = await getAlbums()
 
-  const title: string = " FOTOS "
   return (
     <section className="page">
-        <h1 className="pageTitle">
-          {<>{title.repeat(25)} <span className="titleFocus">{title}</span> {title.repeat(25)}</>}
-        </h1>
-        <article>
+        <Title title={" FOTOS "} />
         {data.album.albums.map(album=>{
           if(album.title !== "Galerie"){
             return <AlbumContainer key={album.title} album={album} />
           }
           })}
-        </article>
     </section>
   )
 }

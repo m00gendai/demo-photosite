@@ -58,7 +58,7 @@ interface Image{
                     backdropFilter: "blur(5px)",
                     backgroundImage: `url("https://zenphoto.mrweber.ch${album.images[0].url_full}")`,
                 }}>
-                    {album.title}
+                    <span className={s.title}>{album.title}</span>
                 </div>
             </summary>
             <div className={s.container}>
@@ -69,14 +69,13 @@ interface Image{
                             backgroundImage: `url("https://zenphoto.mrweber.ch${image.url_thumb}")`
                         }}
                         key={image.url_full}
-                    ><div style={{backdropFilter: "blur(5px)"}}>
+                    >
                         <Image
                             src={`https://zenphoto.mrweber.ch/${image.url_full}`}
                             alt={image.title}
-                            width={image.width}
-                            height={image.height}
-                            loading="lazy"
-                            ></Image></div>
+                            fill={true}
+                            style={{objectFit: "cover"}}
+                            ></Image>
                     </div>
                 )
             })}

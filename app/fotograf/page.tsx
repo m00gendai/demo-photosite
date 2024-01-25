@@ -1,101 +1,50 @@
 import Image from "next/image";
+import s from "../../styles/fotograf.module.css"
+import { Album, Gallery, Medium } from "@/interfaces";
+import Title from "@/components/Title";
+import { metaData } from "@/utils";
 
-interface Image{
-  path: string;
-  title: string;
-  date: number;
-  url_full: string;
-  url_sized: string;
-  url_thumb: string;
-  width: number;
-  height: number;
-  index: Number;
-}
-
-interface Next{
-  path: string;
-  title: string;
-  date: number;
-  date_updated: number;
-  image_size: number;
-  thumb_size: number;
-  url_thumb: string;
-}
-
-interface Albums{
-  path: string;
-  title: string;
-  date: number;
-  date_updated: number;
-  image_size: number;
-  thumb_size: number;
-  url_thumb: string;
-  images: Image[];
-  next: Next;
-}
-
-interface Album{
-  title: string;
-  desc: string;
-  path: string;
-  image_size: number;
-  thumb_size: number;
-  albums: Albums[];
-}
-
-interface Data{
-  album: Album;
-}
-
-async function getAlbums(){
-  const getAlbums: Response = await fetch("https://zenphoto.mrweber.ch/galerie/?json&pagination=off&depth=2", {
+async function getGallery(){
+  const getGallery: Response = await fetch("https://zenphoto.mrweber.ch/galerie/?json&pagination=off&depth=2", {
     next: {
       revalidate: 10
     }
   })
-  return getAlbums.json()
+  return getGallery.json()
+}
+
+export async function generateMetadata(){
+  const title: string = "Fotostudio Peterhans - Der Fotograf"
+  const description: string = "Ein klein wenig über mich"
+  const image: string = "/studio.png"
+  const icon: string = ""
+
+  return metaData(title, description, image, icon)
 }
 
 export default async function Home() {
 
-  const data:Data = await getAlbums()
+  const gallery:Gallery = await getGallery()
 
-  const albums:Albums[] = data.album.albums.filter(album=>{
+  const albums:Album[] = gallery.album.albums.filter(album=>{
     return album.title === "Galerie"
   })
-  const images:Image[] = albums[0].images
+  const images:Medium[] = albums[0].images
 
-  const title: string = " FOTOGRAF "
   return (
     <section className="page">
-        <h1 className="pageTitle">
-          {<>{title.repeat(25)} <span className="titleFocus">{title}</span> {title.repeat(25)}</>}
-        </h1>
-        <article>
-          <div style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            flexWrap: "wrap",
-            position: "relative"
-
-          }}>
-            <div className="imageContainer">
-           <div style={{backdropFilter: "blur(10px)", position: "relative", width: "100%", height: "100%"}}>
-        <Image
-          src={`https://zenphoto.mrweber.ch/${images[3].url_full}`}
-          alt={images[2].title}
-          fill={true}
-          /></div>
-          </div>
-          <div style={{
-            whiteSpace: "pre-line",
-            textTransform: "uppercase",
-            width: "90%",
-            position: "relative",
-          }}>
-            {`
-            Als professioneller Fotograf in meinen 40ern namens Hanspeter Peterhans möchte ich Ihnen meine inspirierende Geschichte erzählen. Fotografie war nicht immer meine Berufung, doch die Liebe zur Kunst des Bildermachens hat mich auf eine außergewöhnliche Reise geführt.
+        <Title title={" FOTOGRAF "} />
+        <div className={s.container}>
+            <div className={s.imageContainer}>
+              <Image
+                src={`https://zenphoto.mrweber.ch/${images[3].url_full}`}
+                alt={images[2].title}
+                fill={true}
+                objectFit="cover"
+                />
+              </div>
+              <div className={s.text}>
+                {`Als professioneller Fotograf in meinen 40ern namens Hanspeter Peterhans möchte ich Ihnen meine inspirierende Geschichte erzählen. Fotografie war nicht immer meine Berufung, doch die Liebe zur Kunst des Bildermachens hat mich auf eine außergewöhnliche Reise geführt.
 
             Ursprünglich führte ich eine Karriere in einem völlig anderen Bereich. Doch während meiner Reisen und Begegnungen mit verschiedenen Kulturen entdeckte ich meine Leidenschaft für die Fotografie. Die Art und Weise, wie Bilder Geschichten erzählen und Emotionen einfangen können, faszinierte mich zutiefst.
             
@@ -111,7 +60,6 @@ export default async function Home() {
             `}
           </div>
           </div>
-        </article>
     </section>
   )
 }

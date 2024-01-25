@@ -20,13 +20,14 @@ export default function Navbar_Mobile(){
 
     return (
         <nav className={s.nav}>
+            <span className={s.title}>FOTO STUDIO PETERHANS</span>
             {open ? <GiKnifeFork
-                style={{margin: "0 1rem 0 0", fontSize: "2rem", color: "grey"}}
+                style={{margin: "0 1rem 0 0", fontSize: "1.5rem", color: "#c1c1c1"}}
                 onClick={()=>handleClick()}
                 className={s.icon}/>
             :
             <GiHamburger 
-                style={{margin: "0 1rem 0 0", fontSize: "2rem", color: "black"}}
+                style={{margin: "0 1rem 0 0", fontSize: "1.5rem", color: "#c1c1c1"}}
                 onClick={()=>handleClick()}
                 className={s.icon}/>
             }
