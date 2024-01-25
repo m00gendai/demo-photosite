@@ -1,8 +1,23 @@
-.backdrop{
-    backdrop-filter: "blur(10px)";
-    position: "relative";
-    width: "100%"; 
-    height: "100%";
+.grid{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  @media only screen and (max-aspect-ratio: 13/9){
+    .grid{
+      grid-template-columns: 1fr;
+    }
+  }
+
+.imageContainer{
+    width: 100%;
+    position: relative;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .textfield{
