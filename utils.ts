@@ -1,4 +1,4 @@
-export async function metaData(title:string, description:string, image:string, icon:string){
+export function metaData(title:string, description:string, image:string){
     return {
         title: title,
         description: description,
@@ -14,12 +14,12 @@ export async function metaData(title:string, description:string, image:string, i
             type: 'website',
         },
         icons: {
-            icon: icon,
-            shortcut: icon,
-            apple: icon,
+            icon: "/logo.png",
+            shortcut: "/logo.png",
+            apple: "/logo.png",
             other: {
                 rel: 'apple-touch-icon-precomposed',
-                url: icon,
+                url: "/logo.png",
             },
         },
     }
