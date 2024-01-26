@@ -17,9 +17,8 @@ export async function generateMetadata(){
   const title: string = "Fotostudio Peterhans - Informationen"
   const description: string = "Adresse, Kontaktmöglichkeiten, Öffnungszeiten, Kostenübersicht sowie Equipment des Fotostudio Peterhans in Anke-Brotikon."
   const image: string = "/studio.png"
-  const icon: string = ""
 
-  return metaData(title, description, image, icon)
+  return metaData(title, description, image)
 }
 
 export default async function Home() {

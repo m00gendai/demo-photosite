@@ -62,9 +62,8 @@ export async function generateMetadata(){
   const title: string = "Fotostudio Peterhans - Mein Portfolio"
   const description: string = "Eine Auswahl an Fotos"
   const image: string = "/studio.png"
-  const icon: string = ""
 
-  return metaData(title, description, image, icon)
+  return metaData(title, description, image)
 }
 
 export default async function Home() {
