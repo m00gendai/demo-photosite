@@ -33,7 +33,37 @@ export default async function Home() {
   return (
     <section className="page">
       <Title title={" STUDIO "} />
-        <div className={s.grid}>
+      <div className={s.info}>
+        <div className={s.infohalf}>
+          <h2>Preise</h2>
+          <ul>
+            <li>Passfotos: CHF 20 pro 6 Stück</li>
+            <li>Personenshooting im Studio: CHF 120 / Stunde </li>
+            <li>Personenshooting an Location: CHF 180 / Stunde</li>
+            <li>Haustiershooting im Studio: CHF 80 / Stunde</li>
+            <li>Haustiershooting an Location: CHF 120 / Stunde</li>
+            <li>Produktfotografie im Studio: CHF 150 / Stunde</li>
+            <li>Produktfotografie an Location: CHF 180 / Stunde</li>
+          </ul>
+        </div>
+        <div className={s.infohalf}>
+          <h2>Equipment</h2>
+          <ul>
+            <li>Kodamatic 100</li>
+            <li>Pentax K-1 Mark II</li>
+            <li>Nikon F2</li>
+            <li>Canon EOS-1D X Mark III</li>
+            <li>Hasselblad 500EL</li>
+            <li>Nokia 7650</li>
+          </ul>
+        </div>
+        <div className={s.infofull}>
+          <p>Anfahrt Region Anketal (Anke-Brotikon, Serwila, Tillsid, Lyona, Sebrinz und Dinkelsrieden) kostenlos, darüber hinaus CHF 5 / km</p>
+          <p>Alles andere nach Absprache, auch Spezialwünsche.</p>
+          <p>Bilddateien roh auf USB immer kostenlos, inklusive 5 bearbeitete Bilder nach Wunsch.</p>
+        </div>
+      </div>
+      <div className={s.grid}>
           <div 
             className={s.imageContainer} 
             style={{
@@ -49,60 +79,16 @@ export default async function Home() {
           </div>
           <div className={s.textfield} style={{backgroundImage: `url("https://zenphoto.mrweber.ch/${images[0].url_thumb}")`}}>
             <div className={s.text}>
-              {`
-                FOTO STUDIO PETERHANS
-                STURMGASS 42
-                0815 ANKE-BROTIKON
+              <p>
+                {`FOTO STUDIO PETERHANS
+                  STURMGASS 42
+                  0815 ANKE-BROTIKON
 
-                001 079 42 69
-                INFO@FOTOSTUDIOPETERHANS.CH
+                  001 079 42 69
+                  INFO@FOTOSTUDIOPETERHANS.CH
 
-                TERMINE NACH VEREINBARUNG
-              `}
-            </div>
-          </div>
-          <div className={s.textfield} style={{backgroundImage: `url("https://zenphoto.mrweber.ch/${images[1].url_full}")`}}>
-            <div className={s.text}>
-              {`
-                PASSFOTOS --- CHF 20 PRO 6 STÜCK
-                PERSONENSHOOTING STUDIO --- CHF 120 / STUNDE 
-                PERSONENSHOOTING LOCATION --- CHF 180 / STUNDE
-                HAUSTIERSHOOTING STUDIO --- CHF 80 / STUNDE
-                HAUSTIERSHOOTING LOCATION --- CHF 120 / STUNDE
-
-                ANDERES NACH ABSPACHE
-
-                BILDDATEIEN AUF USB --- KOSTENLOS
-                BILDDRUCK NACH ABSPRACHE
-              `}
-            </div>
-          </div>
-          <div className={s.imageContainer}>
-           <Image
-              src={`https://zenphoto.mrweber.ch/${images[1].url_full}`}
-              alt={images[1].title}
-              fill={true}
-              style={{objectFit:"cover"}}
-            />
-          </div>
-          <div className={s.imageContainer}>
-           <Image
-              src={`https://zenphoto.mrweber.ch/${images[2].url_full}`}
-              alt={images[1].title}
-              fill={true}
-              style={{objectFit:"cover"}}
-            />
-          </div>
-          <div className={s.textfield} style={{backgroundImage: `url("https://zenphoto.mrweber.ch/${images[2].url_full}")`}}>
-            <div className={s.text}>
-              {`
-                KODAMATIC 100
-                PENTAX K-1 MARK II
-                NIKON F2
-                CANON EOS-1D X MARK III
-                HASSELBLAD 500EL
-                NOKIA 7650
-              `}
+                  TERMINE NACH VEREINBARUNG`}
+              </p>
             </div>
           </div>
         </div>
