@@ -16,9 +16,8 @@ export async function generateMetadata(){
   const title: string = "Fotostudio Peterhans - Das Fotostudio im Anketal"
   const description: string = "Das Fotostudio im Anketal, spezialisiert auf Mensch und Portrait."
   const image: string = "/studio.png"
-  const icon: string = ""
 
-  return metaData(title, description, image, icon)
+  return metaData(title, description, image)
 }
 
 export default async function Home() {
